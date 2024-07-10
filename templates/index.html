@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Случайная цитата</title>
+</head>
+<body>
+  <h1>Случайная цитата</h1>
+  <div id="quote"></div>
+  <button onclick="getQuote()">Новая цитата</button>
+
+  <script>
+    function getQuote() {
+      fetch('/get_quote')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('quote').innerHTML = data.quote;
+        });
+    }
+
+    getQuote(); // Загружаем случайную цитату при загрузке страницы
+  </script>
+</body>
+</html>
